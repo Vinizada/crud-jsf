@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Lista Contatos</title>
+</h:head>
+
+<h:body>
+
+	<h:form id='formgeral'>
+
+		<p:dataTable var="contato" value="#{contatos.listaContato}"
+			rendered="true" scrollable="true" scrollHeight="300" effect="true"
+			effectSpeed="fast" reflow="true" selectionMode="single"
+			rowKey="#{contato.id}">
+
+			<p:ajax event="rowSelect" listener="#{contatos.editar}"
+				update=":formgeral" />
+
+			<p:column headerText="Id" footerText="Id" width="25%">
+				<h:outputText value="#{contato.id}" />
+			</p:column>
+
+			<p:column headerText="Nome" footerText="Nome" width="55%">
+				<h:outputText value="#{contato.nome}" />
+			</p:column>
+
+			<p:column headerText="Ação" footerText="Ação" width="20%">
+				<p:commandButton id="deletar" ajax="false" value="Deletar"
+					action="#{contatos.excluir(contato)}" />
+			</p:column>
+
+		</p:dataTable>
+
+		<br />
+		<div style="float: center; width: 100%">
+			<p:panel header="#{contatos.evento}">
+				<p:panelGrid columns="1" layout="grid">
+					<h:outputText for="contato" value="Id:" />
+					<p:inputText value="#{contatos.contato.id}" disabled="true" />
+					<h:outputText for="contato" value="Nome: " />
+					<p:inputText value="#{contatos.contato.nome}" />
+				</p:panelGrid>
+
+				<p:commandButton value="Salvar" action="#{contatos.criaContato}"
+					update="@formgeral:elvis" ajax="false" />
+
+			</p:panel>
+		</div>
+
+
+	</h:form>
+
+</h:body>
+
+</html>

@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+
+	<meta http-equiv="content-language" content="pt_BR" />
+	<h:outputStylesheet library="css" name="sgd.css" target="head" />
+	<h:outputStylesheet library="js" name="locale-primefaces.js"
+		target="head" />
+
+	<h:outputStylesheet library="css" name="sgd.css" target="head" />
+
+	<ui:insert name="_head" />
+
+</h:head>
+
+<h:body>
+
+	<h:form id='formgeral'>
+
+		<!--
+                Divisao geral
+          -->
+
+		<div id="geral">
+			<!--
+
+                -->
+			<div id="cabecalho">
+
+				<ui:insert name="_cabecalho" />
+
+				<p:graphicImage value="#{resource['imagens:diferpan.png']}"
+					width="200" />
+
+			</div>
+			<!--
+                    Define a barra de tarefas
+              -->
+			<div id="menubarra">
+
+				<p:menubar model="#{loginControle.menuModel}"
+					rendered="#{!empty loginControle.menuModel}" style="width:99%;">
+
+					<f:facet name="options">
+
+						<p:commandButton value="Inicial" icon="ui-icon-home"
+							action="#{loginControle.home}" ajax="false" />
+
+						<p:commandButton value="Sair" icon="ui-icon-extlink"
+							action="#{loginControle.sair}" ajax="false" />
+
+					</f:facet>
+
+				</p:menubar>
+
+				<div style="text-align: right;">
+
+					<p:commandButton value="Sair" icon="ui-icon-extlink"
+						rendered="#{empty loginControle.menuModel}"
+						action="#{loginControle.sair}" ajax="false" />
+
+				</div>
+
+			</div>
+
+
+			<!--
+                        Define o conteudo
+                  -->
+
+			<div id="conteudo">
+
+				<p:messages id="mensagens" autoUpdate="true" closable="true"
+					styleClass="mensagem" />
+
+				<ui:insert name="_conteudo" />
+
+			</div>
+
+			<!--
+                       Define o rodape da pagina
+              -->
+			<div id="rodape">
+
+				<ui:insert name="_rodape" />
+				<br /> Copyright Diferpan <br /> <sup> <p:outputLabel
+						value="#{controleVersao.versao}" />
+				</sup> <br /> <br />
+
+			</div>
+
+		</div>
+
+
+		<p:dialog widgetVar="aguarde" modal="true" closable="false"
+			resizable="false" header="Processando solicitação ...">
+
+
+			<p:graphicImage value="#{resource['imagens:barra.gif']}" width="350" />
+
+
+		</p:dialog>
+	</h:form>
+
+</h:body>
+
+</html>

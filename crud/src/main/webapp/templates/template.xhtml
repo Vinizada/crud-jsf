@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+
+	<f:facet name="first">
+
+		<meta http-equiv="content-language" content="pt_BR" />
+		<meta http-equiv="X-UA-Compatible"  content="IE=edge" />
+		<meta http-equiv="Content-Type"     content="text/html; charset=ANSI" />
+		<meta http-equiv="Cache-Control"    content="no-cache"/>
+		<meta http-equiv="Pragma"           content="no-cache"/>
+		<meta http-equiv="Expires"          content="0"/>
+
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+
+
+	</f:facet>
+
+	<title>Sistema Diferpan</title>
+
+	<h:outputScript name="js/ripple-effect.js" library="modena-layout" />
+	<h:outputScript name="js/perfect-scrollbar.js" library="modena-layout" />
+	<h:outputScript name="js/layout.js" library="modena-layout" />
+
+	<h:outputStylesheet library="css" name="sgd.css" target="head" />
+
+	<ui:insert name="_head" />
+
+<style>
+.ui-growl {
+	background-color: #E6E6E6;
+	position: fixed !important;
+	top: 30% !important;
+	right: 20% !important;
+	left: 20% !important;
+	width: 60% !important;
+	min-width: 60% !important;
+}
+
+.ui-growl-item {
+	background-color: #E6E6E6;
+}
+
+.ui-growl-message {
+	background-color: #E6E6E6;
+	width: 90% !important;
+	min-width: 90% !important;
+}
+</style>
+
+</h:head>
+
+<h:body>
+
+	<ui:include src="topbar.xhtml" />
+
+	<div id="wrapper">
+
+		<div id="wrapperIndent">
+
+			<ui:include src="layoutmenu.xhtml" />
+
+			<div id="layout-portlets-cover">
+
+				<div class="Container96 Fnone MarAuto">
+
+
+					<h:form id='formgeral' enctype="multipart/form-data">
+
+						<div align="center">
+
+							<p:growl sticky="false" id="mensagemtela"/>
+
+						</div>
+
+						<div>
+
+							<div align="left" style="width: 10%; float: left;"></div>
+
+							<div align="right" style="width: 90%; float: right;">
+								<p:outputLabel
+									value="#{loginControle.colaborador.nome}, seja bem vindo!"
+									styleClass="colaboradorlogado" />
+
+							</div>
+
+						</div>
+
+						<ui:insert name="_conteudo" />
+
+						<div class="Container100">
+							<div class="ContainerIndent TexAlCenter Fs14 BoldGray"
+								style="margin: 0 auto">
+								<ui:insert name="_rodape" />
+								<div align="center" style="width: 100%;">
+									<p:separator />
+									<br /> Diferpan | All Rights Reserved.
+								</div>
+							</div>
+						</div>
+
+					</h:form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<p:dialog widgetVar="aguarde" modal="true" closable="false"
+		resizable="false" header="Processando solicitação ...">
+
+		<p:graphicImage value="#{resource['imagens:barra.gif']}" width="350" />
+
+	</p:dialog>
+
+	<h:outputStylesheet name="css/core-layout.css" library="modena-layout" />
+	<h:outputStylesheet name="css/animate.css" library="modena-layout" />
+	<h:outputStylesheet name="css/modena-font.css" library="modena-layout" />
+	<h:outputStylesheet name="css/ripple-effect.css"
+		library="modena-layout" />
+	<h:outputStylesheet name="css/perfect-scrollbar.css"
+		library="modena-layout" />
+	<h:outputStylesheet name="css/font-awesome.css" library="modena-layout" />
+	<h:outputStylesheet name="css/modena-layout.css"
+		library="modena-layout" />
+
+</h:body>
+
+</html>

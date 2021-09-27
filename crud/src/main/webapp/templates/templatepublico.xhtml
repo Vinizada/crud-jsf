@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+
+	<meta http-equiv="content-language" content="pt_BR" />
+	<h:outputStylesheet library="css" name="sgd.css" target="head" />
+	<h:outputStylesheet library="js" name="locale-primefaces.js"
+		target="head" />
+
+	<ui:insert name="_head" />
+
+</h:head>
+
+<h:body>
+
+
+	<h:form id='formgeral' enctype="multipart/form-data">
+
+		<!--
+                Divisao geral
+                
+          -->
+
+		<div id="geral">
+			<!--
+
+                -->
+			<div id="cabecalho">
+
+				<ui:insert name="_cabecalho" />
+
+				<p:graphicImage value="#{resource['imagens:diferpan.png']}"
+					width="200" />
+
+			</div>
+			<!--
+                    Define a barra de tarefas
+              -->
+			<div id="menubarra">
+
+
+				<table>
+
+					<tr>
+
+						<td  width="100%;">
+						
+						
+								
+						</td>
+
+						<td style="text-align: right; ">
+						
+
+							
+						</td>
+
+					</tr>
+
+				</table>
+
+			</div>
+
+			<!--
+                    Define o corpo da pagina
+              -->
+			<div id="corpo">
+				<!--
+                        Define a barra de titulo dentro do corpo
+                    -->
+				<div id="titulo">
+
+					<div id="mensagem">
+
+						<ui:insert name="_titulo" />
+						<p:messages id="mensagens" autoUpdate="true" closable="true" />
+
+					</div>
+
+					<div id="perfil">
+
+						<br />
+
+						<h:panelGrid rendered="#{loginControle.colaboradorLogado}"
+							columns="2">
+
+							<h:outputText for="perfilselecionado" value="Perfil:"
+								style="font-size: 18px;" />
+							<p:selectOneMenu id="perfilselecionado"
+								value="#{loginControle.perfilSelecionado}"
+								converter="perfilConversor" filter="true"
+								filterMatchMode="startsWith" style="width:230px;">
+
+								<f:ajax event="change" render="@form"
+									listener="#{loginControle.alteraMenu}" />
+
+								<f:selectItems value="#{loginControle.colaborador.perfis}"
+									var="perfil" itemLabel="#{perfil.perfil}" itemValue="#{perfil}" />
+
+							</p:selectOneMenu>
+
+						</h:panelGrid>
+
+					</div>
+
+				</div>
+
+				<!--
+                        Define o conteudo dentro do corpo
+                  -->
+
+				<div id="conteudo">
+
+					<ui:insert name="_conteudo" />
+
+				</div>
+
+			</div>
+			<!--
+                       Define o rodape da pagina
+              -->
+			<div id="rodape">
+
+				<ui:insert name="_rodape" />
+				<br /> Copyright Diferpan <br /> <sup> <p:outputLabel value="#{controleVersao.versao}"/> </sup>
+
+			</div>
+
+		</div>
+
+
+		<p:dialog widgetVar="aguarde" modal="true" closable="false"
+			resizable="false" header="Processando solicitação ...">
+
+
+			<p:graphicImage value="#{resource['imagens:barra.gif']}" width="350" />
+
+
+		</p:dialog>
+
+	</h:form>
+
+</h:body>
+
+</html>

@@ -1,0 +1,209 @@
+.linhavermelha {
+	background-color: #aa0000 !important;
+	background-image: none !important;
+	color: White !important;
+	font-weight: bold !important;
+}
+
+.linhanegrito {
+	color: Black !important;
+	background-image: none !important;
+	font-weight: bold !important
+}
+
+.legenda {
+	width: 100% !important;
+	font-weight: bold;
+}
+
+.legendamapa {
+	width: 100% !important;
+	font-weight: bold !important;
+	font-size: 8px !important;
+}
+
+.textomapa {
+	width:     100% !important;
+	font-size: 8px !important;
+}
+
+.textoentrada {
+	overflow: hidden !important;
+	word-wrap: break-word !important;
+	width: 95% !important;
+}
+
+.painel {
+	width: 100% !important;
+	padding: 0% !important;
+}
+
+.painelgrade {
+	width: 100% !important;
+	padding: 0% !important;
+}
+
+.abavisao {
+	width: 99% !important;
+}
+
+.divisaoabavisao {
+	width: 100% !important;
+}
+
+.listavalores {
+	width: 80% !important;
+}
+
+.botaocomum {
+	width: 100% !important;
+}
+
+.tabela {
+	width: 100% !important;
+}
+
+.painelretratil {
+	width: 100% !important;
+}
+
+.filtro {
+	overflow: hidden !important;
+	word-wrap: break-word !important;
+	width: 95% !important;
+}
+
+.mapa {
+	width: 100% !important;
+	height: 100% !important;
+}
+
+.mensagem {
+	font-size: large !important;
+}
+
+.painelmenu {
+	width: 100% !important;
+}
+
+.solicitacao {
+	color: Blue;
+	font-weight: bold;
+}
+
+.respostasolicitacao {
+	color: #008844;
+	font-weight: bold;
+}
+
+.titulopainel {
+	font-size: 40px !important;
+	color: Grey !important;
+	font-family: Verdana !important;
+}
+
+.colaboradorlogado {
+	font-size: 20px !important;
+	font-family: Verdana !important;
+}
+
+.titulopagina {
+	color: Black !important;
+	font-weight: bold !important;
+	font-size: 32px !important;
+	font-family: Verdana !important;
+	text-align: center !important;
+}
+
+.botaopainel {
+	width: 100px !important;
+	height: 40px !important;
+	margin: 5px !important;
+	font-size: medium !important;
+	text-align: center !important;
+}
+
+.painelquadro {
+	min-height: 350px !important;
+}
+
+.atingido {
+	color: green;
+	font-weight: bold;
+}
+
+.naoatingido {
+	color: red;
+	font-weight: bold;
+}
+
+.listaperiodo .ui-selectonemenu-label {
+	width: 300px !important;
+	font-size: large !important;
+	font-weight: bold !important;
+}
+
+.botaomenu {
+	width: 100% !important;
+	height: 80px !important;
+	font-size: large !important;
+	text-align: center !important;
+	border-radius: 20px 20px 20px 20px !important;
+	margin-bottom: 20px !important;
+	padding: 0px !important;
+	text-overflow: ellipsis !important;
+}
+
+.botaoquadrohome {
+	width: 100% !important;
+	height: 80px !important;
+	text-align: left !important;
+	font-size: large !important;
+	margin-bottom: 20px !important;
+	padding: 0px !important;
+	text-overflow: ellipsis !important;
+}
+
+.painelquadrohome {
+	padding: 30px !important;
+}
+
+.titulomodal {
+	font-size: x-large;
+	color: #29A1EC;
+}
+
+.ui-clock {
+	font-size: 20px !important;
+	color: black !important;
+	font-family: Arial !important;
+	background-color: white !important; 
+}
+
+.linhamanual{
+	
+    background-color: #A9A9F5 !important;
+    color: #ffffff !important;
+}
+
+
+.linhafv{
+	
+	background-color: #FFFFFF !important; 
+	color: #ffffff !important;
+	
+}
+
+.linhapendencia{
+	
+	background-color: #F5BCA9 !important;
+	color: #ffffff !important;
+	
+}
+
+
+.inputnumerico{
+	
+	width: 80px !important;
+	
+}
