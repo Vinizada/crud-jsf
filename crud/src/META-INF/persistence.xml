@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence 
+					    http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">		    
+	<persistence-unit name="hibernate" transaction-type="RESOURCE_LOCAL">
+		<!-- <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>entities.Contato</class>
+		<class>entities.Cidade</class>
+		<properties>
+		
+			<property name="hibernate.connection.datasource"        value="jdbc:mysql://localhost:3306/CRUD" />
+			<property name="hibernate.dialect"                      value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			<property name="hibernate.show_sql"                     value="true"/>
+			<property name="hibernate.format_sql"                   value="false"/> 
+			<property name="hibernate.use_sql_comments"             value="false"/> 
+            <property name="hibernate.cache.use_second_level_cache" value="true"/>
+            <property name="current_session_context_class"          value="thread"/>
+			<property name="hibernate.connection.username" 			value="developer"/>
+			<property name="hibernate.connection.password" 			value="1234567"/>
+			<property name="hibernate.connection.driver_class" 		value="com.mysql.jdbc.driver"/>
+			
+           
+           
+            <!--  <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/CRUD"/>
+            <property name="javax.persistence.jdbc.user" value="developer" />
+            <property name="javax.persistence.jdbc.password" value="1234567" />-->
+            
+        </properties>
+	</persistence-unit>
+</persistence>

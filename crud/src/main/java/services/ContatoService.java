@@ -3,38 +3,42 @@ package services;
 import java.io.Serializable;
 import java.util.List;
 
-import dao.factory.ContatoDAO;
-import dao.factory.DAOFactory;
+import javax.ejb.Stateless;
+
+import dao.factory.JPAFactory;
+import dao.jpa.ContatoDAOJPA;
 import entities.Contato;
 
-
+@Stateless
 public class ContatoService implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private ContatoDAO dao = DAOFactory.createContatoDAO();
+	private ContatoDAOJPA dao = JPAFactory.createContatoJPA();
 	public List<Contato> listaContatos;
 
 	public ContatoService() {
 		
 	}
 	
-	public List<Contato> findAll() {
-		this.listaContatos = dao.findAll();
+	public List<Contato> findAll() throws Exception {
+		this.listaContatos = dao.listar(Contato.class);
 		return this.listaContatos;
 	}
 	
-	public void saveOrUpdate(Contato cont) {
+	public void saveOrUpdate(Contato cont) throws Exception {
+		
 		if(cont.getId() == null) {
-			dao.insert(cont);
+			dao.updateMerge(cont);
+
 		}
 		else {
-			dao.update(cont);
+			dao.salvar(cont);
 		}
 	}
 	
-	public void remove(Contato cont) {
-		dao.deleteById(cont);
+	public void remove(Contato cont) throws Exception {
+		dao.deletarPorId(cont);
 	}
 
 }

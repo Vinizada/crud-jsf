@@ -4,21 +4,25 @@ import java.util.List;
 
 import controller.ContatoController;
 import entities.Contato;
+import services.ContatoService;
 
 public class teste {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
-		ContatoController contatos = new ContatoController();
+		ContatoController controller = new ContatoController();
 		
-		contatos.criacaoDaPagina();
+		controller.criacaoDaPagina();
 		
-		List<Contato> lista = contatos.getListaContato();
+		ContatoService service = new ContatoService();
 		
-		for(Contato cont : lista) {
+		List<Contato> contatos = controller.getListaContato();
+		
+		
+		for(Contato cont : contatos) {
 			System.out.println(cont);
 		}
-
+		
 	}
 
 }

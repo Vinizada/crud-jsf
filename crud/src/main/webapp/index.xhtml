@@ -1,0 +1,96 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="/templates/template.xhtml">
+
+
+
+	<ui:define name="_conteudo">
+
+<style type="text/css">
+
+.colunas-color {
+	background-color: #ADD8E6;
+	text-align: center;
+}
+
+.botoes-color {
+    background-color: #00E5EE;
+	text-align: center;
+	color: white;
+
+}
+
+</style>
+
+	
+		<br />
+		<br />
+		
+				
+	<!-- <p:calendar >
+	
+	
+	</p:calendar>-->
+
+		<p:dataTable var="contato" value="#{contatos.listaContato}"
+			rendered="true" scrollable="true" scrollHeight="300" effect="true"
+			effectSpeed="fast" reflow="true" selectionMode="single"
+			rowKey="#{contato.id}" style="width:100%"
+			rowStyleClass="colunas-color">
+
+			<p:ajax event="rowSelect" listener="#{contatos.editar}"
+				update=":formgeral" />
+
+			<p:column headerText="Id" footerText="Id" width="25%">
+				<h:outputText value="#{contato.id}" />
+			</p:column>
+
+			<p:column headerText="Nome" footerText="Nome" width="30%">
+				<h:outputText value="#{contato.nome}" />
+			</p:column>
+
+			<p:column headerText="Email" footerText="Email" width="25%">
+				<h:outputText value="#{contato.email}" />
+			</p:column>
+
+			<p:column headerText="Ação" footerText="Ação" width="20%">
+				<p:commandButton id="deletar" ajax="false" value="Deletar"
+					action="#{contatos.excluir(contato)}" styleClass="botoes-color" />
+			</p:column>
+
+		</p:dataTable>
+
+		<br />
+		<div align="center">
+			<p:panel id="panel" header="#{contatos.evento}" style="width:50%">
+				<p:panelGrid columns="1" layout="grid">
+
+					<h:outputText for="contato" value="Id:" />
+					<p:inputText value="#{contatos.contato.id}" disabled="true" />
+
+					<h:outputText for="contato" value="Nome: " />
+					<p:inputText value="#{contatos.contato.nome}" />
+
+					<h:outputText for="contato" value="Email: " />
+					<p:inputText value="#{contatos.contato.email}" />
+					<br />					
+					
+					<p:commandButton value="Novo" action="#{contatos.novoContato}"
+						ajax="true" update=":formgeral"  styleClass="botoes-color"/>
+					
+					<p:commandButton value="Salvar" action="#{contatos.criaContato}"
+						ajax="true" update=":formgeral" styleClass="botoes-color"/>
+						
+					<br />
+					<br />
+
+				</p:panelGrid>
+
+			</p:panel>
+			<br />
+		</div>
+
+	</ui:define>
+</ui:composition>

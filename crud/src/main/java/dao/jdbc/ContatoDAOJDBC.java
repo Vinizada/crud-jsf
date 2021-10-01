@@ -28,12 +28,13 @@ public class ContatoDAOJDBC implements ContatoDAO {
 		try {
 			st = conn.prepareStatement(
 				"INSERT INTO CONTATO "
-				+ "(NOME)"
+				+ "(NOME, EMAIL)"
 				+ "VALUES "
-				+ "(?)",
+				+ "(?, ?)",
 				Statement.RETURN_GENERATED_KEYS);
 			
 			st.setString(1, cont.getNome());
+			st.setString(2, cont.getEmail());
 			
 			Integer linhasAfetadas = st.executeUpdate();
 			
@@ -63,9 +64,9 @@ public class ContatoDAOJDBC implements ContatoDAO {
 					+ "SET ID = ?, NOME = ?"
 					+ "WHERE ID = ?");
 			
-			st.setInt(1, cont.getId());
+			st.setLong(1, cont.getId());
 			st.setString(2, cont.getNome());
-			st.setInt(3, cont.getId());
+			st.setLong(3, cont.getId());
 			
 			st.executeUpdate();
 		}
@@ -86,7 +87,7 @@ public class ContatoDAOJDBC implements ContatoDAO {
 		try {
 			st = conn.prepareStatement("DELETE FROM CONTATO WHERE ID = ?");
 			
-			st.setInt(1, cont.getId());
+			st.setLong(1, cont.getId());
 			
 			st.executeUpdate();
 		}
@@ -110,7 +111,7 @@ public class ContatoDAOJDBC implements ContatoDAO {
 					+ "FROM CONTATO "
 					+ "WHERE CONTATO.ID = ?");
 			
-			st.setInt(1, id);
+			st.setLong(1, id);
 			rs = st.executeQuery();
 			if (rs.next()) {
 				Contato cont = instantiateContato(rs);

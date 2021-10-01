@@ -8,16 +8,62 @@
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>Lista Contatos</title>
+	
+	<h:outputScript name="js/ripple-effect.js" library="modena-layout" />
+	<h:outputScript name="js/perfect-scrollbar.js" library="modena-layout" />
+	<h:outputScript name="js/layout.js" library="modena-layout" />
+	
+	<h:outputStylesheet library="css" name="template.css" target="head" />
+
+	<style>
+.ui-growl {
+	background-color: #E6E6E6;
+	position: fixed !important;
+	top: 30% !important;
+	right: 20% !important;
+	left: 20% !important;
+	width: 60% !important;
+	min-width: 60% !important;
+}
+
+.ui-growl-item {
+	background-color: #29b5b1;
+	margin-top: #29b5b1;
+}
+
+.ui-growl-message {
+	background-color: #E6E6E6;
+	width: 90% !important;
+	min-width: 90% !important;
+}
+
+.botoes {
+
+    /*Especifica a cor chocolate, como pano de fundo do elemento */
+
+    background-color: #D2691E;
+
+    /*Especifica como preta a cor da fonte do elemento */
+
+    color: #FFFFFF;
+
+    /*Define a borda do elemento, com um efeito de alto-relevo menor que o padrão */
+
+    border: 1px outset;
+
+}
+</style>
+
 </h:head>
 
 <h:body>
 
-	<h:form id='formgeral'>
+	<h:form id='formgeral' styleClass="ui-growl-item">
 
 		<p:dataTable var="contato" value="#{contatos.listaContato}"
 			rendered="true" scrollable="true" scrollHeight="300" effect="true"
 			effectSpeed="fast" reflow="true" selectionMode="single"
-			rowKey="#{contato.id}">
+			rowKey="#{contato.id}" filterBy="#{contato.id}">
 
 			<p:ajax event="rowSelect" listener="#{contatos.editar}"
 				update=":formgeral" />
@@ -26,13 +72,17 @@
 				<h:outputText value="#{contato.id}" />
 			</p:column>
 
-			<p:column headerText="Nome" footerText="Nome" width="55%">
+			<p:column headerText="Nome" footerText="Nome" width="30%">
 				<h:outputText value="#{contato.nome}" />
+			</p:column>
+
+			<p:column headerText="Email" footerText="Email" width="25%">
+				<h:outputText value="#{contato.email}" />
 			</p:column>
 
 			<p:column headerText="Ação" footerText="Ação" width="20%">
 				<p:commandButton id="deletar" ajax="false" value="Deletar"
-					action="#{contatos.excluir(contato)}" />
+					action="#{contatos.excluir(contato)}" styleClass="botoes" />
 			</p:column>
 
 		</p:dataTable>
@@ -45,14 +95,17 @@
 					<p:inputText value="#{contatos.contato.id}" disabled="true" />
 					<h:outputText for="contato" value="Nome: " />
 					<p:inputText value="#{contatos.contato.nome}" />
+					<h:outputText for="contato" value="Email: " />
+					<p:inputText value="#{contatos.contato.email}" />
+					<br />
 				</p:panelGrid>
 
 				<p:commandButton value="Salvar" action="#{contatos.criaContato}"
-					update="@formgeral:elvis" ajax="false" />
+			      ajax="false" styleClass="botoes" />
 
 			</p:panel>
+			<br />
 		</div>
-
 
 	</h:form>
 

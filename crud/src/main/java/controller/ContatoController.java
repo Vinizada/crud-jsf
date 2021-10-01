@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.omnifaces.cdi.ViewScoped;
@@ -19,11 +20,12 @@ public class ContatoController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private ContatoService contatoService;
+	@Inject
+	private ContatoService contatoService = new ContatoService();
 	
 	private String evento;
 	
-    private Contato contato;
+    private Contato contato = new Contato();
 	private List<Contato> listaContato;
 	
 	@PostConstruct
@@ -39,10 +41,6 @@ public class ContatoController implements Serializable {
 		
 		try {
 			
-			this.contato = new Contato();
-			
-			this.contatoService = new ContatoService();
-			
 			this.listaContato = contatoService.findAll();
 			
 		}catch (Exception e) {
@@ -52,7 +50,14 @@ public class ContatoController implements Serializable {
 		
 	}
 	
-	public void criaContato() {
+	public String novoContato() {
+		this.evento = "Novo Contato";
+		contato = new Contato();
+		this.novo();
+		return "";
+	}
+	
+	public void criaContato() throws Exception {
 		
 		
 		contatoService.saveOrUpdate(this.contato);
@@ -74,13 +79,15 @@ public class ContatoController implements Serializable {
 		
 	}
 
-	public void editar(SelectEvent event) {
+	public void editar(SelectEvent event) throws Exception {
 		
 		contato = (Contato) event.getObject();
 		
 		this.setEvento("Editar Contato");
 		
 		contatoService.saveOrUpdate(contato);
+		
+		this.novo();
 	}
 	
 	public List<Contato> getListaContato() {
