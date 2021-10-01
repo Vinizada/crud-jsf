@@ -2,34 +2,32 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui" template="/templates/template.xhtml">
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/templatesemmenu.xhtml">
 
 
 
 	<ui:define name="_conteudo">
 
-<style type="text/css">
-
+		<style type="text/css">
 .colunas-color {
 	background-color: #ADD8E6;
 	text-align: center;
 }
 
 .botoes-color {
-    background-color: #00E5EE;
+	background-color: #00E5EE;
 	text-align: center;
 	color: white;
-
 }
-
 </style>
 
-	
+
 		<br />
 		<br />
-		
-				
-	<!-- <p:calendar >
+
+
+		<!-- <p:calendar >
 	
 	
 	</p:calendar>-->
@@ -75,14 +73,14 @@
 
 					<h:outputText for="contato" value="Email: " />
 					<p:inputText value="#{contatos.contato.email}" />
-					<br />					
-					
+					<br />
+
 					<p:commandButton value="Novo" action="#{contatos.novoContato}"
-						ajax="true" update=":formgeral"  styleClass="botoes-color"/>
-					
+						ajax="true" update=":formgeral" styleClass="botoes-color" />
+
 					<p:commandButton value="Salvar" action="#{contatos.criaContato}"
-						ajax="true" update=":formgeral" styleClass="botoes-color"/>
-						
+						ajax="true" update=":formgeral" styleClass="botoes-color" />
+
 					<br />
 					<br />
 

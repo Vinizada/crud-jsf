@@ -108,7 +108,7 @@
 
 		<dependency>
 			<groupId>org.primefaces.themes</groupId>
-			<artifactId>blitzer</artifactId>
+			<artifactId>start</artifactId>
 			<version>1.0.10</version>
 		</dependency>
 

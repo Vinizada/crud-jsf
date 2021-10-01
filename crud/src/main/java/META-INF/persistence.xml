@@ -7,7 +7,6 @@
 	<persistence-unit name="hibernate" transaction-type="RESOURCE_LOCAL">
 		<!-- <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		<class>entities.Cidade</class>
 		<class>entities.Contato</class>
 		<properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />

@@ -6,20 +6,14 @@
 
 	<div id="layout-topbar">
 
-		<a id="mobile-menu-button"> <span class="ButtonLine"
+		<!--  <a id="mobile-menu-button"> <span class="ButtonLine"
 			id="ButtonLine1"></span> <span class="ButtonLine" id="ButtonLine2"></span>
 			<span class="ButtonLine" id="ButtonLine3"></span>
 
-		</a>
+		</a>-->
 
+			<h:graphicImage name="images/joinha3.png" styleClass="Fleft" width="50" />
 
-
-		<p:commandLink id="logo" action="#{loginControle.home}">
-
-			<h:graphicImage name="images/logo.svg" styleClass="Fleft"
-				library="modena-layout" />
-
-		</p:commandLink>
 
 		<a id="show-top-menu" class="ShowOnMobile ripplelink"> <i
 			class="icon-more_vert" id="active"></i> <i
@@ -30,33 +24,22 @@
 		<ul id="top-menu">
 
 			<li>
-			    <div style="vertical-align: middle !important; margin-top: 8px">
-				<p:clock pattern=" HH:mm:ss " mode="server" rendered="#{inicialControle.relogio}"/>
-			    </div>
+				<div style="vertical-align: middle !important; margin-top: 8px">
+					<p:clock pattern=" HH:mm:ss " mode="client" displayMode="digital" />
+				</div>
 			</li>
 
-			<li>  <p:spacer width="5"/>  </li>
+			<li><p:spacer width="5" /></li>
 
 			<li><p:commandLink action="#{configuracaoControle.novo}">
 					<span class="ripplelink"><i class="icon-cog" /></span>
 					<span class="ShowOnMobile">Configurações</span>
 				</p:commandLink></li>
 
-			<li><p:commandLink class="ripplelink"
-					action="#{inicialControle.recado}" styleClass="ripplelink"
-					rendered="#{inicialControle.acessarRecado}">
-
-					<i class="icon-archive" />
-					<span class="ShowOnMobile">Recados</span>
-
-				</p:commandLink></li>
-
-			<li><p:commandLink action="#{loginControle.sair}">
-					<span class="Red"><i class="icon-power" /></span>
+			<li><p:commandLink action="index.xhtml">
+					<span class="blue"><i class="icon-power" /></span>
 					<span class="ShowOnMobile,Red" style="color: red">Desconectar</span>
 				</p:commandLink></li>
-
-
 
 		</ul>
 
